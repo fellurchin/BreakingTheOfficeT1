@@ -4294,11 +4294,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 763099531045377351}
     m_Modifications:
-    - target: {fileID: 1897711126949075117, guid: a8e6d67803e6949428d99a036342c0bf,
-        type: 3}
-      propertyPath: m_Name
-      value: WallDestructibleOBJ (1)
-      objectReference: {fileID: 0}
     - target: {fileID: 1897711126949075114, guid: a8e6d67803e6949428d99a036342c0bf,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -4353,6 +4348,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1897711126949075117, guid: a8e6d67803e6949428d99a036342c0bf,
+        type: 3}
+      propertyPath: m_Name
+      value: WallDestructibleOBJ (1)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a8e6d67803e6949428d99a036342c0bf, type: 3}
@@ -7409,6 +7409,7 @@ MonoBehaviour:
   G4Active: 0
   G5Active: 0
   G6Active: 0
+  HurtArray: 000000000000000000000000000000000000000000000000
 --- !u!1001 &1384645709
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -18461,7 +18462,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 763099531045377350}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0, y: -0.30070576, z: 0, w: 0.953717}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -18473,7 +18474,7 @@ Transform:
   - {fileID: 763099530731793135}
   m_Father: {fileID: 0}
   m_RootOrder: 12
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -35, z: 0}
 --- !u!4 &763099531049392776
 Transform:
   m_ObjectHideFlags: 0
