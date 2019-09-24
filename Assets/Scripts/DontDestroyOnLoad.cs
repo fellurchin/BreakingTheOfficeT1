@@ -8,6 +8,10 @@ public class DontDestroyOnLoad : MonoBehaviour
 {
     private static DontDestroyOnLoad _instance;
 
+    public bool m1Active = false;
+    public bool m2Active = false;
+    
+
     void Awake()
     {
         //if we don't have an [_instance] set yet

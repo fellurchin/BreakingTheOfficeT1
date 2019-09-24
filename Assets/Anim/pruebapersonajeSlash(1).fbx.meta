@@ -143,8 +143,8 @@ ModelImporter:
     - serializedVersion: 16
       name: Ataque1
       takeName: mixamo.com
-      firstFrame: 0
-      lastFrame: 31
+      firstFrame: 4.3
+      lastFrame: 24.3
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -164,7 +164,7 @@ ModelImporter:
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
       events:
-      - time: 0.47237116
+      - time: 0.2986941
         functionName: Impact
         data: 
         objectReferenceParameter: {fileID: 11500000, guid: d8a1fc059f13ac34ea77bc9951f616c2,
@@ -172,7 +172,7 @@ ModelImporter:
         floatParameter: 0
         intParameter: 0
         messageOptions: 0
-      - time: 0.59643435
+      - time: 0.7619703
         functionName: ColOFF
         data: 
         objectReferenceParameter: {fileID: 11500000, guid: d8a1fc059f13ac34ea77bc9951f616c2,

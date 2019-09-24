@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class ShowDataHUD : MonoBehaviour
 {
@@ -14,40 +15,53 @@ public class ShowDataHUD : MonoBehaviour
 
     [SerializeField] TextMeshProUGUI muestraResultados;
 
+    [SerializeField] TextMeshProUGUI dineroTotal;
 
     int score;
     float timeLeft;
+    [Header("Pause Variables")]
     public bool isPaused = false;
     public bool isTimerFreezed = false;
-    public int pointsADD;
+    public Button PauseBT;
+    public Button PauseBT2;
+    public GameObject PausePanel;
+    public GameObject PanelTimesUP_;
 
+    [Header("Counter")]
     public bool counting = true;
     public GameObject CountingOBJ;
     public float maxTime = 3.5f;
     float counterC = 0;
 
-
-    public Button PauseBT;
-    public Button PauseBT2;
-    public GameObject PausePanel;
-
-    public GameObject PanelTimesUP_;
-
+    [Header("Control mision")]
     public bool missionAccepted = false;
     public GameObject missionPanel;
 
     public WeaponCol weaponCol;
     public GameObject ResultadosOBJ;
     private string ResultadosSTR;
-    
+
+    public int totalMoney;
+
     public int enemyCountS;
 
     public int ScoreT;
     public int Score { get => score; }
     public float TimeLeft { get => timeLeft; }
 
+    [Header("Control escena")]
+    public int SceneNumber;
+    private Scene ATScene;
+
+    public int ActualMoneyScore;
+
+    public bool giveMoney= true;
+
     private void Awake()
     {
+        ATScene = SceneManager.GetActiveScene();
+        SceneNumber = ATScene.buildIndex;
+
         PauseBT.onClick.AddListener(PauseGame);
         PauseBT2.onClick.AddListener(PauseGame);
 
@@ -61,13 +75,11 @@ public class ShowDataHUD : MonoBehaviour
         CountingOBJ.SetActive(true);
         Time.timeScale = 1;
         counterC = maxTime;
-        AddSubstractTime(70);
+        AddTime(85);
     }
 
     void Update()
     {
-        
-
         #region Counting Zone
 
         if (missionAccepted)
@@ -86,14 +98,15 @@ public class ShowDataHUD : MonoBehaviour
         }
 
         #endregion
+
         
+
         if (timeLeft > 0 && !isTimerFreezed )
         {
             if (counting == false)
             {
                 timeLeft -= Time.deltaTime;
             }
-            
         }
         else
         {
@@ -104,23 +117,51 @@ public class ShowDataHUD : MonoBehaviour
 
         if (timeLeft <= 0.0f)
         {
-            
+
+            #region Missions Punctuation
+            if (SceneNumber == 2)
+            {
+                if (enemyCountS > PlayerPrefs.GetInt("Objs_1"))
+                {
+                    PunctuationM1_(enemyCountS);
+                }
+
+            }
+            if (SceneNumber == 3)
+            {
+                if (enemyCountS > PlayerPrefs.GetInt("Objs_2"))
+                {
+                    PunctuationM2_(enemyCountS);
+                }
+            }
+            #endregion
+
             if (this.score >= PlayerPrefs.GetInt("MaxScore"))
             {
                 SaveScore(this.score);
             }
 
+            if (giveMoney)
+            {
+                SaveMoney(this.score);
+                giveMoney = false;
+            }
+
+
+
             PanelTimesUP_.SetActive(true);
-            //ResultadosOBJ.SetActive(true);
-            //Time.timeScale = 0;
+            Time.timeScale = 0;
+
             
         }
-
-        ResultadosSTR = "You have destroyed " + enemyCountS / 3 + " vending machines and earned " + score + " Points";
-
+        ResultadosSTR = "You have destroyed " + enemyCountS + " objects and earned " + score + " Points";
         muestraResultados.text = ResultadosSTR.ToString();
+
         
 
+
+       
+        
     }
     public void M_AcceptedV()
     {
@@ -131,14 +172,26 @@ public class ShowDataHUD : MonoBehaviour
         timeLeft = 0;
     }
 
-    public void AddSubstractTime(float seconds)
+    public void AddTime(float seconds)
     {
         timeLeft += seconds;
     }
 
+
     public void AddToScore(int score)
     {
         this.score += score;
+
+    }
+
+    public void PunctuationM1_(int Points_)
+    {
+        PlayerPrefs.SetInt("Objs_1", Points_);
+
+    }
+    public void PunctuationM2_(int Points_)
+    {
+        PlayerPrefs.SetInt("Objs_2", Points_);
 
     }
 
@@ -147,6 +200,14 @@ public class ShowDataHUD : MonoBehaviour
         return PlayerPrefs.GetInt("MaxScore", 0);
     }
 
+    public void SaveMoney(int MoneyT)
+    {
+        int LastMoney = PlayerPrefs.GetInt("Money");
+
+        PlayerPrefs.SetInt("Money", MoneyT + LastMoney);
+        SaveData.Money = PlayerPrefs.GetInt("Money");
+       
+    }
 
     public void SaveScore(int scoreT)
     {

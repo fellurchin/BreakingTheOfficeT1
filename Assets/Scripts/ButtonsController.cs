@@ -11,30 +11,35 @@ public class ButtonsController : MonoBehaviour
     public Button start_Button;
     public Button restart_Button;
     public Button return_Button;
+
+    public Scene activeScene;
     
 
 
     void Start()
     {
+        activeScene = SceneManager.GetActiveScene();
         if (start_Button != null) { start_Button.onClick.AddListener(StartV); }
-        if (restart_Button != null) { restart_Button.onClick.AddListener(RestartV); }
+        if (restart_Button != null) { restart_Button.onClick.AddListener(RestartScene); }
         if (return_Button != null) { return_Button.onClick.AddListener(ReturnV); }
 
     }
 
     void Update()
     {
+
         if (MaxScoreText != null)
         {
             MaxScoreText.text = PlayerPrefs.GetInt("MaxScore").ToString();
         }
         
+        
 
 
     }
     void StartV() => SceneManager.LoadScene(1);
-    public void RestartV() => SceneManager.LoadScene(1);
-    public void ReturnV() => SceneManager.LoadScene(0);
+    public void RestartScene() => SceneManager.LoadScene(activeScene.buildIndex);
+    public void ReturnV() => SceneManager.LoadScene(1);
 
     public int GetMaxScore()
     {

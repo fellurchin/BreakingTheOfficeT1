@@ -1,0 +1,108 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &7873356297364948305
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7873356297364948317}
+  - component: {fileID: 7873356297364948316}
+  - component: {fileID: 7873356297364948307}
+  - component: {fileID: 7873356297364948306}
+  m_Layer: 0
+  m_Name: ShowDataHud
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7873356297364948317
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7873356297364948305}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 328.05, y: 184.44418, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7873356297364948316
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7873356297364948305}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 692578fd13565f848bcfe25cbc79a608, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ScoreHud: {fileID: 0}
+  timeText: {fileID: 0}
+  countingTimeText: {fileID: 0}
+  muestraResultados: {fileID: 0}
+  dineroTotal: {fileID: 0}
+  isPaused: 0
+  isTimerFreezed: 0
+  pointsADD: 0
+  counting: 1
+  CountingOBJ: {fileID: 0}
+  maxTime: 3
+  PauseBT: {fileID: 0}
+  PauseBT2: {fileID: 0}
+  PausePanel: {fileID: 0}
+  PanelTimesUP_: {fileID: 0}
+  missionAccepted: 0
+  missionPanel: {fileID: 0}
+  weaponCol: {fileID: 0}
+  ResultadosOBJ: {fileID: 0}
+  totalMoney: 0
+  enemyCountS: 0
+  ScoreT: 0
+--- !u!114 &7873356297364948307
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7873356297364948305}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d4bcc4ae33a4b24db31be475d101591, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MaxScoreText: {fileID: 0}
+  start_Button: {fileID: 0}
+  restart_Button: {fileID: 0}
+  return_Button: {fileID: 0}
+  activeScene:
+    m_Handle: 0
+--- !u!114 &7873356297364948306
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7873356297364948305}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 326db8f8ef77f9c418c6d8c30c458f84, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  missionTitleTxt: {fileID: 0}
+  missionTxt: {fileID: 0}
+  showM1: 0
+  showM2: 1
+  showDataHUD: {fileID: 7873356297364948316}
+  titleTextM1: 
+  textM1: 
+  titleTextM2: 
+  textM2: 
