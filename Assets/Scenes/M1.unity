@@ -8539,7 +8539,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &768334992 stripped
 GameObject:
@@ -10266,7 +10266,7 @@ RectTransform:
   m_Children:
   - {fileID: 1267213448}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -24472,7 +24472,7 @@ PrefabInstance:
     - target: {fileID: 3488744921578831387, guid: a3220836a534e2041969ae8b138b6ef2,
         type: 3}
       propertyPath: m_RootOrder
-      value: 7
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 3488744921578831387, guid: a3220836a534e2041969ae8b138b6ef2,
         type: 3}
@@ -24894,7 +24894,7 @@ PrefabInstance:
     - target: {fileID: 4145187600549014977, guid: 0d2db675ae34b174187e7c07f0a23dab,
         type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4145187600549014977, guid: 0d2db675ae34b174187e7c07f0a23dab,
         type: 3}
@@ -24990,11 +24990,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7023381443252515161, guid: a8e6d67803e6949428d99a036342c0bf,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 1897711126949075113, guid: a8e6d67803e6949428d99a036342c0bf,
         type: 3}
       propertyPath: m_Size.x
@@ -25014,6 +25009,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Center.z
       value: -0.01539889
+      objectReference: {fileID: 0}
+    - target: {fileID: 7023381443252515161, guid: a8e6d67803e6949428d99a036342c0bf,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8589324641000330128, guid: a8e6d67803e6949428d99a036342c0bf,
         type: 3}

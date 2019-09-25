@@ -5,54 +5,50 @@ using UnityEngine.UI;
 
 public class EnemyHealth : MonoBehaviour
 {
+    [Header("Variables de las paredes")]
     public bool isAWall = false;
     public GameObject GoodWall;
     public GameObject BadWall;
     private Collider thisCollider;
     private bool CountEnemy = true;
-
-
+    
     WeaponCol weaponCol;
-    public ShowDataHUD showDataHUD;
+    ShowDataHUD showDataHUD;
     GameObject ShowDataHudOBJ;
-    public Explosion explosion;
 
+
+    [Header("Objetos Explosion")]
+    public Explosion explosion;
     public GameObject[] cubes;
     public Rigidbody[] cubesRB;
-
     private float explosionForce = 10;
     private float explosionRadius = 10;
+
 
     public float maxHealth;
     public float health;
     public int pointsToGive;
-    public GameObject healthBarCC;
 
+    [Header("Objetos Barra De vida")]
+    public GameObject healthBarCC;
     public RectTransform healthBar;
     public RectTransform healthBarBG;
+
     public void Start()
     {
         health = maxHealth;
-        //weaponCol = GameObject.Find("Point").GetComponent<WeaponCol>();
         weaponCol = GameObject.FindGameObjectWithTag("Point").GetComponent<WeaponCol>();
         ShowDataHudOBJ = GameObject.Find("ShowDataHud");
         showDataHUD = ShowDataHudOBJ.GetComponent<ShowDataHUD>();
 
         thisCollider = gameObject.GetComponent<Collider>();
 
-
-        //cubesRB = cubes[].GetComponent<Rigidbody>();
-
-
         healthBarBG.sizeDelta = new Vector2(health * 2, healthBar.sizeDelta.y);
-        //HealthBarCanvas = healthBarCC.GetComponent<Canvas>();
     }
     void Update()
     {
-        //weaponCol = GameObject.FindGameObjectWithTag("Point").GetComponent<WeaponCol>();
         if (health <= 0)
         {
-            
             if (CountEnemy)
             {
                 showDataHUD.AddToScore(pointsToGive);
@@ -60,6 +56,7 @@ public class EnemyHealth : MonoBehaviour
                 CountEnemy = false;
             }
 
+            #region Sector of Destructible Walls
 
             if (isAWall)
             {
@@ -74,8 +71,9 @@ public class EnemyHealth : MonoBehaviour
                 {
                     Destroy(gameObject, 0.5f);
                 }
-               
             }
+            #endregion
+
         }
         
 
