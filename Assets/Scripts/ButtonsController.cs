@@ -6,7 +6,7 @@ using TMPro;
 using UnityEngine.SceneManagement;
 public class ButtonsController : MonoBehaviour
 {
-    [SerializeField] TextMeshProUGUI MaxScoreText;
+    [SerializeField] TextMeshProUGUI actualMoney;
 
     public Button start_Button;
     public Button restart_Button;
@@ -28,9 +28,13 @@ public class ButtonsController : MonoBehaviour
     void Update()
     {
 
-        if (MaxScoreText != null)
+        if (actualMoney != null)
         {
-            MaxScoreText.text = PlayerPrefs.GetInt("MaxScore").ToString();
+            if (PlayerPrefs.GetInt("Money") != 0)
+            {
+                actualMoney.text = ("$" + PlayerPrefs.GetInt("Money").ToString());
+            }
+            
         }
         
         

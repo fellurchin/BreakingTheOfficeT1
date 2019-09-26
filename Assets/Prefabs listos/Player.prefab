@@ -65,7 +65,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 65d00cab8f4f3dc4ea5dcebb1c46c379, type: 2}
+  - {fileID: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -180,6 +180,7 @@ MonoBehaviour:
   arma: {fileID: 0}
   animator: {fileID: 4145187600556425797}
   AttackOn: 0
+  TecladoActivo: 0
   Trailr: {fileID: 7009362473085308029}
 --- !u!136 &4145187600549048355
 CapsuleCollider:
@@ -6745,6 +6746,7 @@ MonoBehaviour:
   showDataHUD: {fileID: 0}
   destroyEnemy: {fileID: 0}
   joystickController: {fileID: 4145187600549048354}
+  HealthToRemove: 35
   enemyCount: 0
   Point_OBJ: {fileID: 7009362473112620484}
   counter: 0

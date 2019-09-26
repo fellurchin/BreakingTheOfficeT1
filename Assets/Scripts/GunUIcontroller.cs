@@ -25,13 +25,13 @@ public class GunUIcontroller : MonoBehaviour
 
     [Header("Precios De las armas")]
     public int[] GunPrices;
-    
-    int g1 = 21000;
-    int g2 = 30000;
+
+    int g1 = 30000;
+    int g2 = 40000;
     int g3 = 50000;
-    int g4 = 70000;
-    int g5 = 85000;
-    int g6 = 100000;
+    int g4 = 60000;
+    int g5 = 70000;
+    int g6 = 80000;
 
     public TextMeshProUGUI[] PrecioArmas;
     public bool nonActive = false;
@@ -42,6 +42,8 @@ public class GunUIcontroller : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        actualSate = 0;
+
         GunPrices = new int[6];
         GunPrices[0] = g1;
         GunPrices[1] = g2;
@@ -50,21 +52,15 @@ public class GunUIcontroller : MonoBehaviour
         GunPrices[4] = g5;
         GunPrices[5] = g6;
 
-        actualSate = 0;
+        
         leftButton.onClick.AddListener(Back);
         rightButton.onClick.AddListener(Next);
     }
 
-    void changePrice(int EstadoActual)
-    {
-        
-
-    }
-    
-    // Update is called once per frame
     void Update()
     {
         ArmaNum = actualSate;
+
         #region Control estado actual
 
         
@@ -156,36 +152,36 @@ public class GunUIcontroller : MonoBehaviour
         switch (actualSate)
         {
             case 0:
-                PrecioArmas[0].text = g1.ToString();
+                PrecioArmas[0].text = "$ "+ g1.ToString();
                 //PlayerPrefs.SetInt("PrecioA1", g1);
                 addProduct.thisProduct.itemCost = PlayerPrefs.GetInt("PrecioA1");
                 break;
             case 1:
-                PrecioArmas[1].text = g2.ToString();
+                PrecioArmas[1].text = "$ " + g2.ToString();
                 //PlayerPrefs.SetInt("PrecioA2", g2);
                 addProduct.thisProduct.itemCost = PlayerPrefs.GetInt("PrecioA2");
                 
                 break;
             case 2:
-                PrecioArmas[2].text = g3.ToString();
+                PrecioArmas[2].text = "$ " + g3.ToString();
                 //PlayerPrefs.SetInt("PrecioA3", g3);
                 addProduct.thisProduct.itemCost = PlayerPrefs.GetInt("PrecioA3");
 
                 break;
             case 3:
-                PrecioArmas[3].text = g4.ToString();
+                PrecioArmas[3].text = "$ " + g4.ToString();
                 //PlayerPrefs.SetInt("PrecioA4", g4);
                 addProduct.thisProduct.itemCost = PlayerPrefs.GetInt("PrecioA4");
 
                 break;
             case 4:
-                PrecioArmas[4].text = g5.ToString();
+                PrecioArmas[4].text = "$ " + g5.ToString();
                 //PlayerPrefs.SetInt("PrecioA5", g5);
                 addProduct.thisProduct.itemCost = PlayerPrefs.GetInt("PrecioA5");
 
                 break;
             case 5:
-                PrecioArmas[5].text = g6.ToString();
+                PrecioArmas[5].text = "$ " + g6.ToString();
                 //PlayerPrefs.SetInt("PrecioA6", g6);
                 addProduct.thisProduct.itemCost = PlayerPrefs.GetInt("PrecioA6");
 

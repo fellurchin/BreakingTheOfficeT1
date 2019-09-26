@@ -37,8 +37,8 @@ public class ResetAllValues : MonoBehaviour
         PlayerPrefs.SetInt("Objs_2", 0);
 
         PlayerPrefs.SetInt("FirstMoney", 0);
-        PlayerPrefs.SetInt("Money", 21000);
-        SaveData.Money = 21000;
+        PlayerPrefs.SetInt("Money", 30000);
+        SaveData.Money = 30000;
 
     }
 }

@@ -98,15 +98,23 @@ public class ActiveThings : MonoBehaviour
     public void ActualGunV(int ArmaNum)
     {
         addProduct = Armas[ArmaNum].GetComponent<AddProduct>();
-        addProduct.thisProduct.itemCode = ArmaNum;
+       
+            addProduct.thisProduct.itemCode = SaveData.WeaponEquiped;
+        
         
 
     }
 
     public void GunSelected()
     {
-        ArmaSeleccionada = ActiveGun;
-        GunSelectedBool = true;
+        if (addProduct.thisProduct.isPurchased)
+        {
+            ArmaSeleccionada = ActiveGun;
+
+            SaveData.WeaponEquiped = ActiveGun;
+            GunSelectedBool = true;
+        }
+        
     }
 
     void RevisionCompra(int ArmaNum)
@@ -115,22 +123,23 @@ public class ActiveThings : MonoBehaviour
         {
             if (addProduct.thisProduct.isPurchased == true || PlayerPrefs.GetInt("G"+ArmaNum) == 1)
             {
+                BuyedBTN[ArmaNum].SetActive(true);
+                NotBuyedBTN[ArmaNum].SetActive(false);
                 GunBuyed[ArmaNum] = true;
                 PlayerPrefs.SetInt("G" + ArmaNum, 1);
                 
-                BuyedBTN[ArmaNum].SetActive(true);
-                NotBuyedBTN[ArmaNum].SetActive(false);
-                //addProduct.thisProduct.itemCost = 0;
+                
 
             }
             else if (addProduct.thisProduct.isPurchased == false || PlayerPrefs.GetInt("G" + ArmaNum) == 0)
             {
-                GunBuyed[ArmaNum] = false;
-                PlayerPrefs.SetInt("G"+ArmaNum,0);
                 BuyedBTN[ArmaNum].SetActive(false);
                 NotBuyedBTN[ArmaNum].SetActive(true);
+                GunBuyed[ArmaNum] = false;
+                PlayerPrefs.SetInt("G"+ArmaNum,0);
+                
             }
-            
+           
         }
 
 
@@ -156,7 +165,7 @@ public class ActiveThings : MonoBehaviour
 
         if (PlayerPrefs.GetInt("FirstMoney") == 0)
         {
-            SaveData.Money = 21000;
+            SaveData.Money = 30000;
             PlayerPrefs.SetInt("FirstMoney", 1);
         }
 
@@ -165,14 +174,17 @@ public class ActiveThings : MonoBehaviour
    
     void Update()
     {
+        
+
 
         RevisionCompra(Armanum_);
         ModifyMoneyV();
-        
 
+        Armanum_ = gunUIcontroller.actualSate;
+        
         Armanum_ = SaveData.WeaponEquiped;
 
-        dineroTotal.text = SaveData.Money.ToString();
+        dineroTotal.text = "$ " + SaveData.Money.ToString();
         PlayerPrefs.SetInt("Money", SaveData.Money);
 
         

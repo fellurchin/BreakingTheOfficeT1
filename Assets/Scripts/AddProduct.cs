@@ -20,6 +20,8 @@ public class AddProduct : MonoBehaviour
             }
             else
             {
+                //thisProduct.isPurchased = false;
+                //PlayerPrefs.SetInt("G" + thisProduct.itemCode, 0);
                 //puede salir un mensaje que diga que no hay suficiente dinero
             }
         }
