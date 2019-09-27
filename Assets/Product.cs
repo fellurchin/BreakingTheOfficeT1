@@ -16,7 +16,7 @@ public class Product
         {
             isPurchased = false;
         }
-        else
+        else //if (PlayerPrefs.GetInt(("G") + itemCode) ==1)
         {
             isPurchased = true;
         }

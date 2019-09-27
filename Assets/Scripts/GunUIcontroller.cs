@@ -21,28 +21,23 @@ public class GunUIcontroller : MonoBehaviour
     public GameObject[] GunOBJS;
 
     [Header("Arma Actual")]
-    public int actualSate = 0;
+    public int actualSate;
 
     [Header("Precios De las armas")]
     public int[] GunPrices;
 
     int g1 = 30000;
-    int g2 = 40000;
-    int g3 = 50000;
-    int g4 = 60000;
-    int g5 = 70000;
-    int g6 = 80000;
+    int g2 = 30000;
+    int g3 = 30000;
+    int g4 = 90000;
+    int g5 = 90000;
+    int g6 = 90000;
 
     public TextMeshProUGUI[] PrecioArmas;
     public bool nonActive = false;
 
-    int ArmaNum;
-
-
-    // Start is called before the first frame update
     void Start()
     {
-        actualSate = 0;
 
         GunPrices = new int[6];
         GunPrices[0] = g1;
@@ -59,7 +54,6 @@ public class GunUIcontroller : MonoBehaviour
 
     void Update()
     {
-        ArmaNum = actualSate;
 
         #region Control estado actual
 
@@ -94,8 +88,6 @@ public class GunUIcontroller : MonoBehaviour
             for (int i = 0; i < GunOBJS.Length; i++)
             {
                 GunOBJS[i].SetActive(false);
-
-
             }
             nonActive = false;
         }
@@ -135,7 +127,7 @@ public class GunUIcontroller : MonoBehaviour
         #region Precio de las armas
 
 
-        addProduct = activeThings.Armas[ArmaNum].GetComponent<AddProduct>();
+        addProduct = activeThings.Armas[actualSate].GetComponent<AddProduct>();
 
         PlayerPrefs.SetInt("PrecioA1", g1);
         PlayerPrefs.SetInt("PrecioA2", g2);
@@ -144,66 +136,53 @@ public class GunUIcontroller : MonoBehaviour
         PlayerPrefs.SetInt("PrecioA5", g5);
         PlayerPrefs.SetInt("PrecioA6", g6);
 
-        
-
-        
-
-
         switch (actualSate)
         {
             case 0:
                 PrecioArmas[0].text = "$ "+ g1.ToString();
-                //PlayerPrefs.SetInt("PrecioA1", g1);
                 addProduct.thisProduct.itemCost = PlayerPrefs.GetInt("PrecioA1");
                 break;
+
             case 1:
                 PrecioArmas[1].text = "$ " + g2.ToString();
-                //PlayerPrefs.SetInt("PrecioA2", g2);
                 addProduct.thisProduct.itemCost = PlayerPrefs.GetInt("PrecioA2");
-                
                 break;
+
             case 2:
                 PrecioArmas[2].text = "$ " + g3.ToString();
-                //PlayerPrefs.SetInt("PrecioA3", g3);
                 addProduct.thisProduct.itemCost = PlayerPrefs.GetInt("PrecioA3");
-
                 break;
+
             case 3:
                 PrecioArmas[3].text = "$ " + g4.ToString();
-                //PlayerPrefs.SetInt("PrecioA4", g4);
                 addProduct.thisProduct.itemCost = PlayerPrefs.GetInt("PrecioA4");
-
                 break;
+
             case 4:
                 PrecioArmas[4].text = "$ " + g5.ToString();
-                //PlayerPrefs.SetInt("PrecioA5", g5);
                 addProduct.thisProduct.itemCost = PlayerPrefs.GetInt("PrecioA5");
-
                 break;
+
             case 5:
                 PrecioArmas[5].text = "$ " + g6.ToString();
-                //PlayerPrefs.SetInt("PrecioA6", g6);
                 addProduct.thisProduct.itemCost = PlayerPrefs.GetInt("PrecioA6");
-
                 break;
 
-            default:
-                break;
         }
         #endregion
     }
 
-    
+    public void Next() //Funcion de boton arma Siguiente
+    {
+        actualSate = actualSate + 1;
+        nonActive = true;
+    }
 
-    public void Back()
+    public void Back() //Funcion de boton arma anterior
     {
         actualSate = actualSate - 1;
         nonActive = true;
     }
 
-    public void Next()
-    {
-        actualSate = actualSate + 1;
-        nonActive = true;
-    }
+   
 }

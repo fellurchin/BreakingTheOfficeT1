@@ -6,52 +6,36 @@ using TMPro;
 using UnityEngine.SceneManagement;
 public class ButtonsController : MonoBehaviour
 {
+    [Header("Texto del dinero que posee")]
     [SerializeField] TextMeshProUGUI actualMoney;
 
+    [Header("Botones necesarios")]
     public Button start_Button;
     public Button restart_Button;
     public Button return_Button;
 
-    public Scene activeScene;
+    Scene activeScene;
     
-
-
     void Start()
     {
         activeScene = SceneManager.GetActiveScene();
         if (start_Button != null) { start_Button.onClick.AddListener(StartV); }
         if (restart_Button != null) { restart_Button.onClick.AddListener(RestartScene); }
         if (return_Button != null) { return_Button.onClick.AddListener(ReturnV); }
-
     }
 
     void Update()
     {
-
-        if (actualMoney != null)
+        if (actualMoney != null) //Si existe dinero
         {
             if (PlayerPrefs.GetInt("Money") != 0)
             {
                 actualMoney.text = ("$" + PlayerPrefs.GetInt("Money").ToString());
             }
-            
         }
-        
-        
-
-
     }
+
     void StartV() => SceneManager.LoadScene(1);
     public void RestartScene() => SceneManager.LoadScene(activeScene.buildIndex);
     public void ReturnV() => SceneManager.LoadScene(1);
-
-    public int GetMaxScore()
-    {
-        return PlayerPrefs.GetInt("MaxScore", 0);
-    }
-    public void ResetScore()
-    {
-        PlayerPrefs.SetInt("MaxScore", 0);
-
-    }
 }

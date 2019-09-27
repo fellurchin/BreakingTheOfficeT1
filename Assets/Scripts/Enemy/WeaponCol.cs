@@ -8,6 +8,7 @@ public class WeaponCol : MonoBehaviour
     public ShowDataHUD showDataHUD;
     public DestroyEnemy destroyEnemy;
     public JoystickController joystickController;
+    GunController gunController;
 
     public int HealthToRemove = 35;
 
@@ -24,6 +25,7 @@ public class WeaponCol : MonoBehaviour
 
     public void Start()
     {
+        gunController = GameObject.FindGameObjectWithTag("GunController").GetComponent<GunController>();
         joystickController.JButton.onClick.AddListener(ActiveCounter_);
         GetComponent<Collider>();
         SelfCollider = gameObject.GetComponent<Collider>();
@@ -46,7 +48,7 @@ public class WeaponCol : MonoBehaviour
         
         if (Col.gameObject.tag == "Enemy")
         {
-            Col.gameObject.GetComponent<EnemyHealth>().RemoveHealth(35);
+            Col.gameObject.GetComponent<EnemyHealth>().RemoveHealth(HealthToRemove);
         }
 
     }

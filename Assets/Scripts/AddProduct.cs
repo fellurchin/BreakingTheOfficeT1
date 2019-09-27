@@ -9,7 +9,6 @@ public class AddProduct : MonoBehaviour
 
     public void PurchaseOrEquipProduct() //cuando se quiera comprar el producto llamar esta funcion
     {
-        
         if (thisProduct.isPurchased == false)
         {
             Debug.Log("Intento de compra" + thisProduct.itemCode);
@@ -20,8 +19,8 @@ public class AddProduct : MonoBehaviour
             }
             else
             {
-                //thisProduct.isPurchased = false;
-                //PlayerPrefs.SetInt("G" + thisProduct.itemCode, 0);
+                thisProduct.isPurchased = false;
+                PlayerPrefs.SetInt("G" + thisProduct.itemCode, 0);
                 //puede salir un mensaje que diga que no hay suficiente dinero
             }
         }
@@ -34,4 +33,5 @@ public class AddProduct : MonoBehaviour
     {
         thisProduct.Initialize();
     }
+    
 }

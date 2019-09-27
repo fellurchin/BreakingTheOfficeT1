@@ -17,9 +17,9 @@ public static class SaveData
 
     public static void GetDataFromPrefs()
     {
-        for(int x = 0; x < levelsScore.Length - 1; x++)
-        {
-            levelsScore[x] = PlayerPrefs.GetInt(string.Format("level {0}", x), 0);
-        }
+        //for(int x = 0; x < levelsScore.Length - 1; x++)
+        //{
+        //    levelsScore[x] = PlayerPrefs.GetInt(string.Format("level {0}", x), 0);
+        //}
     }
 }

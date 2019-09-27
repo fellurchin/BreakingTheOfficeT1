@@ -6,18 +6,8 @@ public class GunController : MonoBehaviour
 {
     public GameObject[] GunsArray;
     private WeaponCol weaponCol;
-   
 
     public int activeGun;
-
-    public bool canChangeGun = false;
-
-    public bool G1Active = false;
-    public bool G2Active = false;
-    public bool G3Active = false;
-    public bool G4Active = false;
-    public bool G5Active = false;
-    public bool G6Active = false;
 
     public int[] HurtArray = new int[6];
 
@@ -25,23 +15,21 @@ public class GunController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        HurtArray[0] = 30;
-        HurtArray[1] = 40;
-        HurtArray[2] = 50;
-        HurtArray[3] = 60;
-        HurtArray[4] = 70;
-        HurtArray[5] = 80;
-
-
-
+        
     }
 
     // Update is called once per frame
     void Update()
     {
-        
         weaponCol = GameObject.FindGameObjectWithTag("Point").GetComponent<WeaponCol>();
         activeGun = SaveData.WeaponEquiped;
+
+        HurtArray[0] = 30;
+        HurtArray[1] = 30;
+        HurtArray[2] = 30;
+        HurtArray[3] = 80;
+        HurtArray[4] = 80;
+        HurtArray[5] = 80;
 
         #region Switch valor Daño
         switch (activeGun)
@@ -74,22 +62,8 @@ public class GunController : MonoBehaviour
 
         if (true)
         {
-            GunSelected(activeGun);
+            GunSelected(activeGun); //No tocar, permite la seleccion del arma
         }
-
-
-        //if (activeGun < 0)
-        //{
-        //    activeGun = 0;
-        //}
-        //if (activeGun >= GunsArray.Length -1)
-        //{
-        //    activeGun = GunsArray.Length - 1;
-        //}
-
-
-
-
     }
     void GunSelected(int activeGun)
     {
