@@ -6,6 +6,8 @@ public class MissionCheker : MonoBehaviour
 {
     ShowDataHUD showDataHUD;
     [SerializeField] private int DestructionsToCheck;
+
+    [SerializeField] bool UseDestructorCounter;
     // Start is called before the first frame update
     private void Awake()
     {
@@ -14,7 +16,7 @@ public class MissionCheker : MonoBehaviour
     
     private void OnTriggerEnter(Collider other)
     {
-        if (other.tag == "Player" )
+        if (other.tag == "Player" && UseDestructorCounter )
         {
             if (showDataHUD.enemyCountS >= DestructionsToCheck)
             {
@@ -24,7 +26,7 @@ public class MissionCheker : MonoBehaviour
     }
     private void OnTriggerStay(Collider other)
     {
-        if (other.tag == "Player")
+        if (other.tag == "Player" && UseDestructorCounter)
         {
             if (showDataHUD.enemyCountS >= DestructionsToCheck)
             {
