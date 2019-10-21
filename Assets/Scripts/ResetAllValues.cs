@@ -37,6 +37,7 @@ public class ResetAllValues : MonoBehaviour
 
         PlayerPrefs.SetInt("FirstMoney", 0);
         PlayerPrefs.SetInt("Money", 30000);
+
         SaveData.Money = PlayerPrefs.GetInt("Money");
 
     }

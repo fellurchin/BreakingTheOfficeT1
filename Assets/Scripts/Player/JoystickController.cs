@@ -18,6 +18,8 @@ public class JoystickController : MonoBehaviour
     public Rigidbody rb;
     public Vector3 direction;
 
+    public bool usingJoyStick = false;
+
     #endregion
 
     #region Variables Movimiento arma
@@ -35,7 +37,6 @@ public class JoystickController : MonoBehaviour
     public GameObject Trailr;
     public void Start()
     {
-        //JButton.onClick.AddListener(Attack);
 
     }
 
@@ -44,7 +45,7 @@ public class JoystickController : MonoBehaviour
 
 
     }
-
+    
     public void FixedUpdate()
     {
         #region Movimiento Personaje (no tocar)
@@ -65,7 +66,7 @@ public class JoystickController : MonoBehaviour
         }
         if (v != 0 || h != 0)
         {// if we are getting inputs, form -1 to 1, 0=no input
-
+            usingJoyStick = true;
             if (v >= 0.5f || v <= -0.5f || h >= 0.5f || h <= -0.5f)
             {
                 animator.SetBool("Running", true);
@@ -93,6 +94,7 @@ public class JoystickController : MonoBehaviour
         }
         else
         {
+            usingJoyStick = false;
             animator.SetBool("Walking", false);
             animator.SetBool("Running", false);
             rb.velocity = rb.velocity * 0.8f;
@@ -117,13 +119,10 @@ public class JoystickController : MonoBehaviour
     }
     public void Impact()
     {
-        //Trailr.SetActive(true);
         weaponCol.ActiveCol();
     }
     public void ColOFF()
     {
-        //Trailr.SetActive(false);
-
         weaponCol.DesactiveCol();
     }
 }

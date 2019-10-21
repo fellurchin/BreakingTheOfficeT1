@@ -86,7 +86,6 @@ public class ActiveThings : MonoBehaviour
         MissionSelectedBool = false; //Mision seleccionada falsa
         GunSelectedBool = false; //Arma seleccionada falsa
         SceneManager.LoadScene(0);
-
     }
 
     public void MissionSelected() //Funcion para seleccion de mision, y bool de mision seleccionada
@@ -98,7 +97,6 @@ public class ActiveThings : MonoBehaviour
     public void ActualGunV(int ArmaNum)
     {
         addProduct = Armas[ArmaNum].GetComponent<AddProduct>();
-        //addProduct.thisProduct.itemCode = SaveData.WeaponEquiped;
     }
 
     public void GunSelected() //Funcion donde se levisa si el arma fue comprada, si es asi asigna el arma y activa el bool de arma seleccionada
@@ -106,7 +104,6 @@ public class ActiveThings : MonoBehaviour
         if (addProduct.thisProduct.isPurchased)
         {
             ArmaSeleccionada = ActiveGun;
-
             SaveData.WeaponEquiped = ActiveGun;
             GunSelectedBool = true;
         }
@@ -118,18 +115,8 @@ public class ActiveThings : MonoBehaviour
         {
             Debug.Log("ha sido comprado el raro");
         }
-        //if (true)
-        //{
-        //    if (PlayerPrefs.GetInt("G" + 0) == 0)
-        //    {
-        //        PlayerPrefs.SetInt("G" + 0, 0);
-        //        BuyedBTN[0].SetActive(false);
-        //        NotBuyedBTN[0].SetActive(true);
-        //        GunBuyed[0] = false;
-        //    }
-        //}
-
     }
+
     void RevisionCompra(int ArmaNum) //Revisa si los productos han sido efectivamente comprados
     {
         if (addProduct != null)
@@ -137,19 +124,13 @@ public class ActiveThings : MonoBehaviour
             if (addProduct.thisProduct.isPurchased == true || PlayerPrefs.GetInt("G" + ArmaNum) == 1)
             {
                 PlayerPrefs.SetInt("G" + ArmaNum, 1);
-                //BuyedBTN[ArmaNum].SetActive(true);
-                //NotBuyedBTN[ArmaNum].SetActive(false);
                 GunBuyed[ArmaNum] = true;
             }
             if (addProduct.thisProduct.isPurchased == false || PlayerPrefs.GetInt("G" + ArmaNum) == 0)
             {
                 PlayerPrefs.SetInt("G" + ArmaNum, 0);
-                //BuyedBTN[ArmaNum].SetActive(false);
-                //NotBuyedBTN[ArmaNum].SetActive(true);
                 GunBuyed[ArmaNum] = false;
             }
-            
-
         }
 
         if (GunBuyed[ArmaNum] == true)
@@ -162,21 +143,17 @@ public class ActiveThings : MonoBehaviour
             BuyedBTN[ArmaNum].SetActive(false);
             NotBuyedBTN[ArmaNum].SetActive(true);
         }
-
-
     }
 
     
 
     void ModifyMoneyV() //Modifica el dinero si el juego es reseteado
     {
-
         if (PlayerPrefs.GetInt("FirstMoney") == 0)
         {
             SaveData.Money = 30000;
             PlayerPrefs.SetInt("FirstMoney", 1);
         }
-
     }
 
    
@@ -186,9 +163,7 @@ public class ActiveThings : MonoBehaviour
 
         ModifyMoneyV();
 
-        //Armanum_ = gunUIcontroller.actualSate;
-
-        Armanum_ = gunUIcontroller.actualSate;//SaveData.WeaponEquiped;
+        Armanum_ = gunUIcontroller.actualSate;
 
         dineroTotal.text = "$ " + SaveData.Money.ToString();
         PlayerPrefs.SetInt("Money", SaveData.Money);

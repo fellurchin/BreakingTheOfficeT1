@@ -15,17 +15,18 @@ public class ShowDataHUD : MonoBehaviour
 
     [SerializeField] TextMeshProUGUI muestraResultados;
 
-    [SerializeField] TextMeshProUGUI dineroTotal;
+
+    public float timeInMission;
 
     int score;
     float timeLeft;
     [Header("Pause Variables")]
     public bool isPaused = false;
     public bool isTimerFreezed = false;
-    public Button PauseBT;
-    public Button PauseBT2;
-    public GameObject PausePanel;
-    public GameObject PanelTimesUP_;
+    [SerializeField] Button PauseBT;
+    [SerializeField] Button PauseBT2;
+    [SerializeField] GameObject PausePanel;
+    [SerializeField] GameObject PanelTimesUP_;
 
     [Header("Counter")]
     public bool counting = true;
@@ -35,6 +36,8 @@ public class ShowDataHUD : MonoBehaviour
 
     [Header("Control mision")]
     public bool missionAccepted = false;
+    public bool wonMission = false;
+    public bool showTime = false;
     public GameObject missionPanel;
 
     public WeaponCol weaponCol;
@@ -75,7 +78,7 @@ public class ShowDataHUD : MonoBehaviour
         CountingOBJ.SetActive(true);
         Time.timeScale = 1;
         counterC = maxTime;
-        AddTime(85);
+        AddTime(timeInMission);
     }
 
     void Update()
@@ -88,7 +91,11 @@ public class ShowDataHUD : MonoBehaviour
             if (counterC > 0.0f)
             {
                 counterC -= Time.deltaTime;
-                countingTimeText.text = counterC.ToString("##0");
+                
+                    
+                    countingTimeText.text = counterC.ToString("##0");
+
+
                 if (counterC <= 0.5F)
                 {
                     CountingOBJ.SetActive(false);
@@ -101,21 +108,26 @@ public class ShowDataHUD : MonoBehaviour
 
         
 
-        if (timeLeft > 0 && !isTimerFreezed )
+        
+        if (showTime)
         {
-            if (counting == false)
+            timeText.text = timeLeft.ToString("##0.0");
+            if (timeLeft > 0 && !isTimerFreezed)
             {
-                timeLeft -= Time.deltaTime;
+                if (counting == false)
+                {
+                    timeLeft -= Time.deltaTime;
+                }
+            }
+            else
+            {
+                timeLeft = 0;
             }
         }
-        else
-        {
-            timeLeft = 0;
-        }
-        timeText.text = timeLeft.ToString("##0.0");
+        
         ScoreHud.text = score.ToString();
 
-        if (timeLeft <= 0.0f)
+        if (timeLeft <= 0.0f  || wonMission)
         {
 
             #region Missions Punctuation

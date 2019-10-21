@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class EnemyHealth : MonoBehaviour
 {
     [Header("Variables de las paredes")]
-    public bool isAWall = false;
+    [SerializeField] bool isAWall = false;
     public GameObject GoodWall;
     public GameObject BadWall;
     private Collider thisCollider;
@@ -21,8 +21,8 @@ public class EnemyHealth : MonoBehaviour
     public Explosion explosion;
     public GameObject[] cubes;
     public Rigidbody[] cubesRB;
-    private float explosionForce = 10;
-    private float explosionRadius = 10;
+    //private float explosionForce = 10;
+    //private float explosionRadius = 10;
 
 
     public float maxHealth;
@@ -38,6 +38,7 @@ public class EnemyHealth : MonoBehaviour
     {
         health = maxHealth;
         weaponCol = GameObject.FindGameObjectWithTag("Point").GetComponent<WeaponCol>();
+
         ShowDataHudOBJ = GameObject.Find("ShowDataHud");
         showDataHUD = ShowDataHudOBJ.GetComponent<ShowDataHUD>();
 

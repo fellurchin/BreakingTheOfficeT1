@@ -6,19 +6,9 @@ public class ColectorController : MonoBehaviour
 {
     public ShowDataHUD ShowDataHUD;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        ShowDataHUD = GameObject.Find("ShowDataHud").GetComponent<ShowDataHUD>();
-    }
+    void Start() => ShowDataHUD = GameObject.Find("ShowDataHud").GetComponent<ShowDataHUD>();
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
-    void OnTriggerEnter(Collider Col)
+    private void OnTriggerEnter(Collider Col)
     {
         if (Col.tag == "Gold")
         {

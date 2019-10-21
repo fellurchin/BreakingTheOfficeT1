@@ -98,27 +98,35 @@ public class GunUIcontroller : MonoBehaviour
         switch (actualSate)
         {
             case 0:
-                GunNameTEXT.text = "Arma1";
+                GunNameTEXT.text = "Weapon 1";
                 break;
             case 1:
-                GunNameTEXT.text = "Arma2";
+                GunNameTEXT.text = "Weapon 2";
                 break;
             case 2:
-                GunNameTEXT.text = "Arma3";
+                GunNameTEXT.text = "Weapon 3";
                 break;
             case 3:
-                GunNameTEXT.text = "Arma4";
+                GunNameTEXT.text = "Weapon 4";
                 break;
             case 4:
-                GunNameTEXT.text = "Arma5";
+                GunNameTEXT.text = "Weapon 5";
                 break;
             case 5:
-                GunNameTEXT.text = "Arma6";
+                GunNameTEXT.text = "Weapon 6";
                 break;
             case 6:
-                GunNameTEXT.text = "Arma7";
+                GunNameTEXT.text = "Weapon 7";
                 break;
-
+            case 7:
+                GunNameTEXT.text = "Weapon 8";
+                break;
+            case 8:
+                GunNameTEXT.text = "Weapon 9";
+                break;
+            case 9:
+                GunNameTEXT.text = "Weapon 10";
+                break;
             default:
                 break;
         }

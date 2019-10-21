@@ -22,6 +22,7 @@ public class MissionController : MonoBehaviour
     string textM1;
     public string DestroyedObjsM1;
     public int maxObjectsM1 = 20;
+    
 
     string titleTextM2;
     string textM2;
@@ -31,11 +32,9 @@ public class MissionController : MonoBehaviour
 
     void Start()
     {
-        titleTextM1 = "VENDING MACHINES";
+        titleTextM1 = "INTRO MISSION";
 
-        textM1 = "In this mission, you must destroy as many Vending machines as you can," +
-                 " the reason is that one of those hateful bikers owns the company. " +
-                 "Enjoy it and press me when you're ready";
+        textM1 = "Follow the instructions, its the introduction for the game";
 
         if (PlayerPrefs.GetInt("Objs_1") != null)
         {
@@ -44,7 +43,7 @@ public class MissionController : MonoBehaviour
 
         titleTextM2 = "THE OFFICE";
 
-        textM2 = "This is the first office, so in this mission you need to destroy each object of this site," +
+        textM2 = "Destroy each object of this site," +
                 " and remember, look the time";
 
         if (PlayerPrefs.GetInt("Objs_2") != null)

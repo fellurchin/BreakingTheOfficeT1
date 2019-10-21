@@ -10,7 +10,7 @@ public class WeaponCol : MonoBehaviour
     public JoystickController joystickController;
     GunController gunController;
 
-    public int HealthToRemove = 35;
+    public float HealthToRemove = 35;
 
     Collider SelfCollider;
     public int enemyCount;
@@ -19,9 +19,9 @@ public class WeaponCol : MonoBehaviour
     
 
     public float counter = 0;
-    float maxTime =2;
+    //float maxTime =2;
 
-    bool counterActive = false;
+    //bool counterActive = false;
 
     public void Start()
     {
@@ -31,7 +31,7 @@ public class WeaponCol : MonoBehaviour
         SelfCollider = gameObject.GetComponent<Collider>();
         if (SelfCollider != null)
         {
-            Debug.Log("listo");
+            //Debug.Log("listo");
         }
         SelfCollider.enabled = false;
         
