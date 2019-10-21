@@ -30,7 +30,7 @@ public class ShowDataHUD : MonoBehaviour
 
     [Header("Counter")]
     public bool counting = true;
-    public GameObject CountingOBJ;
+    [SerializeField] GameObject CountingOBJ;
     public float maxTime = 3.5f;
     float counterC = 0;
 

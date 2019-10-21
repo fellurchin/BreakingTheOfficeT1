@@ -86,6 +86,7 @@ public class ActiveThings : MonoBehaviour
         MissionSelectedBool = false; //Mision seleccionada falsa
         GunSelectedBool = false; //Arma seleccionada falsa
         SceneManager.LoadScene(0);
+        //SceneManager.LoadScene(0);
     }
 
     public void MissionSelected() //Funcion para seleccion de mision, y bool de mision seleccionada
@@ -111,10 +112,10 @@ public class ActiveThings : MonoBehaviour
     }
     void FixedUpdate() // Este FixedUpdate se usa para solucionar el bug de compra de la tienda
     {
-        if (PlayerPrefs.GetInt("G0") == 1)
-        {
-            Debug.Log("ha sido comprado el raro");
-        }
+        //if (PlayerPrefs.GetInt("G0") == 1)
+        //{
+            //Debug.Log("ha sido comprado el raro");
+        //}
     }
 
     void RevisionCompra(int ArmaNum) //Revisa si los productos han sido efectivamente comprados

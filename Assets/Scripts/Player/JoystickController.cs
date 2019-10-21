@@ -35,16 +35,7 @@ public class JoystickController : MonoBehaviour
     public bool TecladoActivo = false;
 
     public GameObject Trailr;
-    public void Start()
-    {
-
-    }
-
-    public void Update()
-    {
-
-
-    }
+   
     
     public void FixedUpdate()
     {

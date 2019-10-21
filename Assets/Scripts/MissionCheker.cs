@@ -11,9 +11,7 @@ public class MissionCheker : MonoBehaviour
     {
         showDataHUD = GameObject.Find("ShowDataHud").GetComponent<ShowDataHUD>();
     }
-        
     
-
     private void OnTriggerEnter(Collider other)
     {
         if (other.tag == "Player" )

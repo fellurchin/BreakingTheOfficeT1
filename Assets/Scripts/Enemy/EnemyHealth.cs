@@ -107,7 +107,6 @@ public class EnemyHealth : MonoBehaviour
         thisCollider.enabled = false;
         
         BadWall.SetActive(true);
-
     }
     
 

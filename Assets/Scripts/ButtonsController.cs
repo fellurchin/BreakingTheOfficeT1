@@ -16,7 +16,7 @@ public class ButtonsController : MonoBehaviour
 
     Scene activeScene;
     
-    void Start()
+     void Start()
     {
         activeScene = SceneManager.GetActiveScene();
         if (start_Button != null) { start_Button.onClick.AddListener(StartV); }
@@ -35,7 +35,7 @@ public class ButtonsController : MonoBehaviour
         }
     }
 
-    void StartV() => SceneManager.LoadScene(1);
+    public void StartV() => SceneManager.LoadScene(1);
     public void RestartScene() => SceneManager.LoadScene(activeScene.buildIndex);
     public void ReturnV() => SceneManager.LoadScene(1);
 }
