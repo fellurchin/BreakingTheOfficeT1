@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class ResetAllValues : MonoBehaviour
 {
+
+    public GameObject settingsGO;
     void Start()
     {
         if (PlayerPrefs.GetInt("Juego_Iniciado") == null || PlayerPrefs.GetInt("Juego_Iniciado") == 0)
@@ -25,6 +27,8 @@ public class ResetAllValues : MonoBehaviour
 
     public void ResetALL() //Funcion para acceder a los Guardados y restablecerlos
     {
+        settingsGO.SetActive(false);
+    
         PlayerPrefs.SetInt("G0", 0);
         PlayerPrefs.SetInt("G1", 0);
         PlayerPrefs.SetInt("G2", 0);

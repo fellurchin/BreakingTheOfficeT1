@@ -5,6 +5,8 @@ using UnityEngine;
 public class DestroyWithOtherGO : MonoBehaviour
 {
 
+    GameObject OtherGameObject;
+
     // Start is called before the first frame update
     void Start()
     {
