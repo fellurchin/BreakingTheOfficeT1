@@ -558,7 +558,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d483b995759bbe24ab9060bcd1487c89, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DestructionsToCheck: 56
+  DestructionsToCheck: 53
   UseDestructorCounter: 1
 --- !u!1001 &139417923
 PrefabInstance:
@@ -4471,7 +4471,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   DestructionsToCheck: 53
-  UseDestructorCounter: 0
+  UseDestructorCounter: 1
 --- !u!135 &758834691
 SphereCollider:
   m_ObjectHideFlags: 0
