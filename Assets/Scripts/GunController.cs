@@ -10,13 +10,10 @@ public class GunController : MonoBehaviour
     public int activeGun;
 
     public int[] HurtArray = new int[6];
+    
 
-
-    void Update()
+    private void Start()
     {
-        weaponCol = GameObject.FindGameObjectWithTag("Point").GetComponent<WeaponCol>();
-        activeGun = SaveData.WeaponEquiped;
-
         HurtArray[0] = 30;
         HurtArray[1] = 30;
         HurtArray[2] = 30;
@@ -24,7 +21,9 @@ public class GunController : MonoBehaviour
         HurtArray[4] = 80;
         HurtArray[5] = 80;
 
-        #region Switch valor Daño
+        weaponCol = GameObject.FindGameObjectWithTag("Point").GetComponent<WeaponCol>();
+        activeGun = SaveData.WeaponEquiped;
+
         switch (activeGun)
         {
             case 0:
@@ -51,13 +50,10 @@ public class GunController : MonoBehaviour
                 break;
         }
 
-        #endregion
-
-        if (true)
-        {
-            GunSelected(activeGun); //No tocar, permite la seleccion del arma
-        }
+        GunSelected(activeGun); //No tocar, permite la seleccion del arma
     }
+
+    
     void GunSelected(int activeGun)
     {
         foreach (GameObject gameObject in GunsArray)

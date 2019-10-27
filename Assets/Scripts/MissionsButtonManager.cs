@@ -7,10 +7,10 @@ using UnityEngine.SceneManagement;
 
 public class MissionsButtonManager : MonoBehaviour
 {
-   
+    LevelLoader levelLoader;
 
     MissionController missionController;
-    DontDestroyOnLoad dontDestroyOnLoad;
+    //DontDestroyOnLoad dontDestroyOnLoad;
 
     public GameObject Mission1OBJS;
     public GameObject Mission2OBJS;
@@ -29,8 +29,10 @@ public class MissionsButtonManager : MonoBehaviour
     [Header ("Dinero Total")]
     public int tMoney;
 
+   
     void Start()
     {
+        levelLoader = GetComponent<LevelLoader>();
         actualSate = 0;
         leftButton.onClick.AddListener(Back);
         rightButton.onClick.AddListener(Next);
@@ -105,17 +107,7 @@ public class MissionsButtonManager : MonoBehaviour
 
         
 
-        if (dontDestroyOnLoad != null)
-        {
-            if (dontDestroyOnLoad.m1Active)
-            {
-                Mission1_V();
-            }
-            if (dontDestroyOnLoad.m2Active)
-            {
-                Mission2_V();
-            }
-        }
+        
        
 
     }
@@ -135,20 +127,13 @@ public class MissionsButtonManager : MonoBehaviour
     public void Mission1_V()
     {
         SceneManager.LoadScene(2);
-        //missionController.missionTitleTxt.text = missionController.titleTextM1.ToString();
-        //missionController.missionTxt.text = missionController.textM1.ToString();
-
-        //Mission1OBJS.SetActive(true);
-        //Mission2OBJS.SetActive(false);
+        //levelLoader.LoadLevel(2);
+        
     }
     public void Mission2_V()
     {
         SceneManager.LoadScene(3);
-        //missionController.missionTitleTxt.text = missionController.titleTextM2.ToString();
-        //missionController.missionTxt.text = missionController.textM2.ToString();
-
-        //Mission1OBJS.SetActive(false);
-        //Mission2OBJS.SetActive(true);
+        //levelLoader.LoadLevel(3);
     }
 
 }

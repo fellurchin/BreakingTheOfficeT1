@@ -15,6 +15,7 @@ TagManager:
   - GunUIcontroller
   - MissionButtonManager
   - JoystickOnlyImage
+  - LevelLoader
   layers:
   - Default
   - TransparentFX

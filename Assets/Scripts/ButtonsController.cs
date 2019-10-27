@@ -6,6 +6,9 @@ using TMPro;
 using UnityEngine.SceneManagement;
 public class ButtonsController : MonoBehaviour
 {
+
+    LevelLoader levelLoader;
+
     [Header("Texto del dinero que posee")]
     [SerializeField] TextMeshProUGUI actualMoney;
 
@@ -15,9 +18,14 @@ public class ButtonsController : MonoBehaviour
     public Button return_Button;
 
     Scene activeScene;
-    
-     void Start()
+
+    private void Awake()
     {
+        levelLoader = GetComponent<LevelLoader>();
+    }
+    void Start()
+    {
+
         activeScene = SceneManager.GetActiveScene();
         if (start_Button != null) { start_Button.onClick.AddListener(StartV); }
         if (restart_Button != null) { restart_Button.onClick.AddListener(RestartScene); }
@@ -35,7 +43,12 @@ public class ButtonsController : MonoBehaviour
         }
     }
 
-    public void StartV() => SceneManager.LoadScene(1);
+    public void StartV()
+    {
+        //levelLoader.LoadLevel(1);
+        SceneManager.LoadScene(1);
+    }
+
     public void RestartScene() => SceneManager.LoadScene(activeScene.buildIndex);
     public void ReturnV() => SceneManager.LoadScene(1);
 }

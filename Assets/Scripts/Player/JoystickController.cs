@@ -68,7 +68,8 @@ public class JoystickController : MonoBehaviour
                 animator.SetBool("Running", false);
 
             }
-            //animator.SetBool("Running", true);
+            
+
             Vector3 direction = Vector3.forward * variableJoystick.Vertical + Vector3.right * variableJoystick.Horizontal;
             if (TecladoActivo)
             {
@@ -97,11 +98,7 @@ public class JoystickController : MonoBehaviour
 
         #endregion 
 
-        #region Movimiento Arma
-        //Rigidbody armaRB = arma.GetComponent<Rigidbody>();
-        //armaRB.velocity = Vector3.right * speed;
-
-        #endregion
+      
     }
 
     public void Attack()

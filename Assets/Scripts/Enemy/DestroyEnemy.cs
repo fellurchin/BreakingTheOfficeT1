@@ -16,7 +16,6 @@ public class DestroyEnemy : MonoBehaviour
     void Start()
     {
         joystickController.JButton.onClick.AddListener(AttackV);
-
     }
 
     void Update()
@@ -25,23 +24,12 @@ public class DestroyEnemy : MonoBehaviour
         {
             AttackV();
         }
-        
-
     }
 
-    void OnTriggerEnter(Collider Other)
-    {
-       
-        
-
-    }
+   
     public void AttackV()
     {
         joystickController.animator.SetTrigger("Attack1");
-
-
-        
-
     }
   
     

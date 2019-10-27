@@ -5,25 +5,24 @@ using UnityEngine.UI;
 
 public class EnemyHealth : MonoBehaviour
 {
+
+    public bool countAsDestroyed = true;
+
     [Header("Variables de las paredes")]
     [SerializeField] bool isAWall = false;
     public GameObject GoodWall;
     public GameObject BadWall;
     private Collider thisCollider;
-    private bool CountEnemy = true;
+    private bool CountEnemy = true; //used to identify which GO give points to player
     
     WeaponCol weaponCol;
     ShowDataHUD showDataHUD;
     GameObject ShowDataHudOBJ;
 
-
     [Header("Objetos Explosion")]
     public Explosion explosion;
     public GameObject[] cubes;
     public Rigidbody[] cubesRB;
-    //private float explosionForce = 10;
-    //private float explosionRadius = 10;
-
 
     public float maxHealth;
     public float health;
@@ -53,7 +52,11 @@ public class EnemyHealth : MonoBehaviour
             if (CountEnemy)
             {
                 showDataHUD.AddToScore(pointsToGive);
-                showDataHUD.enemyCountS += 1;
+                if (countAsDestroyed)
+                {
+                    showDataHUD.enemyCountS += 1;
+                }
+                
                 CountEnemy = false;
             }
 
@@ -63,7 +66,6 @@ public class EnemyHealth : MonoBehaviour
             {
                 ChangeWalls();
                 explosion.ExplodeAct = true;
-                //explosion.ExplodeAct = true;
             }
             else
             {
